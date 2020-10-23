@@ -18,6 +18,86 @@
  *       pairs() returns []
  ****************************************************************/
 function pairs(names) {
+  // Checking for empty or none
+  if (names == [] || names == null) return [];
+
+  //Declear a place for the names
+  let namesNewHome = [];
+  let size = names.length;
+  //loop until the array is complate
+  while (size !== namesNewHome.length) {
+    // No need for checking, getRandom doesnt repeat elements
+    namesNewHome.push(names.getRandom());
+  }
+
+  // return
+  return namesNewHome;
+}
+
+//module.exports = pairs;
+
+/**********************************************
+ * READ ME!!!!
+ *
+ * We've included this handy method for you.
+ * It will remove a random element from an array
+ * and return it to you.
+ *
+ * Example Usage:
+ *
+ * let numbers = [1, 2, 3, 4];
+ * let random = numbers.getRandom();  // randomly returns something from the array. e.g. 3
+ * console.log(random); // 3 (the random element)
+ * console.log(numbers);  // [1, 2, 4] (missing the random element)
+ ************************************************/
+Array.prototype.getRandom = function () {
+  return this.splice(Math.floor(Math.random() * this.length), 1)[0];
+};
+
+// Separate array testing
+// let namess = ["Asis", "Hamsa", "Fawas", "Mishmish", "Hussein", "Lailz"];
+
+// printing test:
+// First element check
+// console.log(names.splice(0, 1));
+// console.log(names[0]);
+
+// odd test
+// console.log(
+//   pairs(["Asis", "Hamsa", "Fawas", "Mishmish", "Hussein", "Lailz", "Mr Potato"])
+// );
+
+// even test
+// console.log(pairs(["Asis", "Hamsa", "Fawas", "Mishmish", "Hussein", "Lailz"]));
+
+/*
+names.getRandom()
+*/
+
+/* Test the empty
+console.log(pairs());
+console.log(pairs([]));
+*/
+
+/* 
+
+Testing the given method:
+let list = [
+  "Asis",
+  "Hamsa",
+  "Fawas",
+  "Mishmish",
+  "Hussein",
+  "Lailz",
+  "Mr Potato",
+];
+console.log(list.getRandom());
+
+*/
+
+/* 
+Trick:
+
   if (names == [] || names == null) return [];
 
   let namesHolder = [];
@@ -67,61 +147,4 @@ function pairs(names) {
   namesNewHome.push(names.splice(0, 1));
 
   return namesNewHome;
-}
-
-module.exports = pairs;
-
-/**********************************************
- * READ ME!!!!
- *
- * We've included this handy method for you.
- * It will remove a random element from an array
- * and return it to you.
- *
- * Example Usage:
- *
- * let numbers = [1, 2, 3, 4];
- * let random = numbers.getRandom();  // randomly returns something from the array. e.g. 3
- * console.log(random); // 3 (the random element)
- * console.log(numbers);  // [1, 2, 4] (missing the random element)
- ************************************************/
-Array.prototype.getRandom = function () {
-  return this.splice(Math.floor(Math.random() * this.length), 1)[0];
-};
-
-// Separate array testing
-let names = ["Asis", "Hamsa", "Fawas", "Mishmish", "Hussein", "Lailz"];
-
-// printing test:
-// First element check
-// console.log(names.splice(0, 1));
-// console.log(names[0]);
-
-// odd test
-console.log(
-  pairs(["Asis", "Hamsa", "Fawas", "Mishmish", "Hussein", "Lailz", "Mr Potato"])
-);
-
-// even test
-//console.log(pairs(["Asis", "Hamsa", "Fawas", "Mishmish", "Hussein", "Lailz"]));
-
-/* Test the empty
-console.log(pairs());
-console.log(pairs([]));
-*/
-
-/* 
-
-Testing the given method:
-let list = [
-  "Asis",
-  "Hamsa",
-  "Fawas",
-  "Mishmish",
-  "Hussein",
-  "Lailz",
-  "Mr Potato",
-];
-console.log(list.getRandom());
-
 */
