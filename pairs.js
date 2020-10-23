@@ -23,11 +23,20 @@ function pairs(names) {
 
   //Declear a place for the names
   let namesNewHome = [];
+  let holder = [];
   let size = names.length;
   //loop until the array is complate
   while (size !== namesNewHome.length) {
     // No need for checking, getRandom doesnt repeat elements
-    namesNewHome.push(names.getRandom());
+    if (names.length === 0) return namesNewHome;
+    if (names.length === 1) {
+      namesNewHome.push(names);
+      return namesNewHome;
+    }
+    holder.push(names.getRandom());
+    holder.push(names.getRandom());
+    namesNewHome.push(holder);
+    holder = [];
   }
 
   // return
@@ -62,13 +71,14 @@ Array.prototype.getRandom = function () {
 // console.log(names.splice(0, 1));
 // console.log(names[0]);
 
+console.log("Odds");
 // odd test
-// console.log(
-//   pairs(["Asis", "Hamsa", "Fawas", "Mishmish", "Hussein", "Lailz", "Mr Potato"])
-// );
-
+console.log(
+  pairs(["Asis", "Hamsa", "Fawas", "Mishmish", "Hussein", "Lailz", "Mr Potato"])
+);
+console.log("Evens");
 // even test
-// console.log(pairs(["Asis", "Hamsa", "Fawas", "Mishmish", "Hussein", "Lailz"]));
+console.log(pairs(["Asis", "Hamsa", "Fawas", "Mishmish", "Hussein", "Lailz"]));
 
 /*
 names.getRandom()
